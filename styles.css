@@ -100,11 +100,12 @@ body {
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   text-align: center;
   color: #fff;
   margin-top: 0;
+  padding-top: 3rem;
 }
 
 .hero-bg {
@@ -134,8 +135,52 @@ body {
 
 .hero-buttons {
   display: flex;
-  gap: 2rem;
-  margin: 2rem 0 3rem;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 3rem 0 0;
+  align-items: center;
+}
+
+.hero-buttons-connector {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: #FFFEF9;
+  opacity: 0.9;
+}
+
+
+.hero-buttons .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-inst {
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 120px;
+  min-height: 120px;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-rose);
+  color: #fff;
+}
+
+.btn-inst:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-inst svg {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.btn-inst-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .btn-secondary {
@@ -155,15 +200,15 @@ body {
   font-weight: 400;
   margin: 0;
   line-height: 1.2;
-  color: #000;
+  color: #FFFEF9;
 }
 
 .hero-content p {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.5rem;
-  color: #000;
-  margin: 0;
+  color: #FFFEF9;
+  margin: 2rem 0 0;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -179,6 +224,7 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
   border: none;
+  border-radius: 2rem;
 }
 
 .btn-primary {
@@ -331,14 +377,21 @@ section {
 
 /* Footer */
 .footer {
-  padding: 4rem 2rem;
+  padding: 2rem;
   border-top: 1px solid #eee;
-  text-align: center;
 }
 
 .footer-inner {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-brand {
+  margin-top: 1rem;
 }
 
 .footer-brand .logo-main {
@@ -348,10 +401,11 @@ section {
 }
 
 .footer-links {
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .footer-links a {
@@ -360,6 +414,86 @@ section {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.footer-links a:hover {
+  color: var(--color-turquoise);
+}
+
+.footer-sep {
+  color: #999;
+  font-size: 0.75rem;
+  user-select: none;
+  padding: 0 0.25rem;
+}
+
+/* Impressum / Legal Page */
+.legal-main {
+  padding: 4rem 2rem 6rem;
+  background: var(--color-beige);
+  min-height: 60vh;
+}
+
+.legal-content {
+  max-width: 640px;
+  margin: 0 auto;
+  color: #1a1a1a;
+  line-height: 1.7;
+}
+
+.legal-content h1 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--color-turquoise);
+  margin-bottom: 0.5rem;
+}
+
+.legal-intro {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+.legal-content h2 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-rose);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.legal-content p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.legal-content a {
+  color: var(--color-turquoise);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-content a:hover {
+  color: var(--color-rose);
+}
+
+.legal-back {
+  margin-top: 3rem !important;
+}
+
+.legal-back-link {
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  display: inline-block;
+}
+
+.legal-back-link:hover {
+  color: var(--color-turquoise);
 }
 
 @media (max-width: 1024px) {
