@@ -1,0 +1,9 @@
+{
+  "name": "cre-art-e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "sh scripts/kill-port.sh && bun --watch dev.js",
+    "start": "sh scripts/kill-port.sh && bun dev.js"
+  }
+}
