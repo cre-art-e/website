@@ -66,12 +66,12 @@ body {
   margin: 1.5rem 0;
 }
 
-/* 75% of base max size (440px × 800px) */
+/* 75% of prior cap (which was 75% of base 440px × 800px) */
 .logo-img {
   display: block;
   height: auto;
-  max-height: calc(440px * 0.75);
-  max-width: min(calc(800px * 0.75), 72vw);
+  max-height: calc(440px * 0.75 * 0.75);
+  max-width: min(calc(800px * 0.75 * 0.75), calc(72vw * 0.75));
   width: auto;
   object-fit: contain;
 }
@@ -153,111 +153,153 @@ body {
 }
 
 .hero-below--after-gallery {
-  padding-top: 1.5rem;
+  padding-top: 2.5rem;
   padding-bottom: 3rem;
+}
+
+.hero-section-split {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2.25rem, 5vw, 3.5rem) 1.5rem;
+  margin: 0;
+  width: 100%;
+}
+
+.hero-gallery-band {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  /* Equal space: divider → title → gallery */
+  padding: clamp(1.85rem, 4.25vw, 3rem) clamp(1.5rem, 4vw, 2.25rem);
+  text-align: center;
+  background: var(--color-beige);
 }
 
 .workshop-description {
   margin-top: 2.5rem;
-  max-width: 640px;
+  max-width: 680px;
   margin-left: auto;
   margin-right: auto;
-  text-align: left;
+  text-align: center;
 }
 
 .workshop-tickets-section {
-  margin: 2rem 0 2.25rem;
+  margin: 2.25rem auto 2rem;
   padding: 0;
+  max-width: 26rem;
+  text-align: center;
 }
 
 .workshop-tickets-heading {
   font-family: var(--font-sans);
-  font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  font-size: clamp(0.78rem, 1.7vw, 0.9rem);
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-turquoise);
-  text-align: center;
-  margin: 0 0 1.25rem;
+  margin: 0 0 0.5rem;
 }
 
-.workshop-ticket-card {
+.workshop-tickets-note {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: #666;
+  margin: 0 0 1.35rem;
+  line-height: 1.4;
+}
+
+.workshop-ticket-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.workshop-ticket-slot {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1.25rem 1.5rem;
-  padding: 1.15rem 1.25rem;
-  border: 1px solid rgba(26, 26, 26, 0.14);
-  border-radius: 12px;
-  background: #fff;
+  gap: 0.65rem 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(26, 26, 26, 0.1);
+  user-select: none;
+  pointer-events: none;
+  cursor: default;
 }
 
-.workshop-ticket-body {
+.workshop-ticket-slot:last-child {
+  border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+}
+
+.workshop-ticket-slot-info {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.2rem;
   min-width: 0;
-  flex: 1 1 14rem;
-  text-align: left;
+  flex: 1 1 12rem;
 }
 
-.workshop-ticket-btn {
-  flex: 0 0 auto;
-  align-self: center;
-  margin-left: auto;
-}
-
-.workshop-ticket-name {
+.workshop-ticket-slot-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  font-size: 1rem;
   font-weight: 600;
   color: #1a1a1a;
-  margin-bottom: 0.15rem;
 }
 
-.workshop-ticket-row {
+.workshop-ticket-slot-line {
   font-family: var(--font-sans);
   font-size: 0.88rem;
-  line-height: 1.45;
+  line-height: 1.4;
   color: #333;
 }
 
-.workshop-ticket-label {
-  display: inline-block;
-  min-width: 4.25rem;
-  font-weight: 500;
-  color: #555;
+.workshop-ticket-slot-meta {
+  font-size: 0.82rem;
+  color: #666;
 }
 
-.workshop-ticket-label::after {
-  content: '\00a0';
+.workshop-ticket-slot-ort {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #444;
 }
 
-@media (max-width: 520px) {
-  .workshop-ticket-card {
-    flex-direction: column;
-    align-items: stretch;
-  }
+.workshop-ticket-slot-hint {
+  color: #777;
+  font-style: italic;
+  font-weight: 400;
+}
 
-  .workshop-ticket-btn {
-    margin-left: 0;
-    width: 100%;
-    text-align: center;
-  }
+.workshop-ticket-soon {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-rose);
+  padding: 0.45rem 0.85rem;
+  border: none;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .workshop-description-title {
   font-family: var(--font-sans);
-  font-size: clamp(1.2rem, 3.2vw, 1.8rem);
+  font-size: clamp(1.35rem, 3.6vw, 2rem);
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-turquoise);
-  margin: 0 auto 1.1rem;
+  margin: 0 auto 1.15rem;
   line-height: 1.25;
   text-align: center;
   width: 100%;
+  text-wrap: balance;
 }
 
 .workshop-description-list {
@@ -270,9 +312,261 @@ body {
   margin-bottom: 0.35rem;
 }
 
+.workshop-description-body {
+  margin: 0 auto 0.35rem;
+  padding: 0;
+  max-width: 38em;
+  color: #333;
+  font-size: clamp(1.06rem, 2.35vw, 1.2rem);
+  line-height: 1.68;
+  text-align: center;
+}
+
+.workshop-description-body strong {
+  font-weight: 600;
+}
+
+.workshop-farbtupfer {
+  display: flex;
+  justify-content: center;
+  margin: 1.75rem auto 2rem;
+  max-width: 200px;
+}
+
+.workshop-farbtupfer-svg {
+  display: block;
+  width: min(168px, 46vw);
+  height: auto;
+}
+
+section.workshop-you-get {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.workshop-you-get {
+  margin: 0 auto 2.5rem;
+  max-width: 640px;
+  text-align: center;
+}
+
+.workshop-you-get-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-turquoise);
+  margin: 0 auto 1.35rem;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.workshop-you-get-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 34em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.workshop-you-get-item {
+  display: flex;
+  gap: 0.7rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0;
+}
+
+.workshop-you-get-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-rose);
+  flex-shrink: 0;
+  margin-top: 0.55em;
+}
+
+.workshop-you-get-text {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 2vw, 1.03rem);
+  line-height: 1.55;
+  color: #333;
+  font-weight: 400;
+}
+
 .workshop-description-cta {
   margin-top: 0;
   align-items: center;
+}
+
+.workshop-cta-column {
+  width: 100%;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.workshop-cta-column .workshop-custom-events,
+.workshop-cta-column .workshop-description-cta--after-events {
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.workshop-description-cta--after-events {
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(26, 26, 26, 0.1);
+  max-width: 28rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.workshop-custom-events {
+  margin-top: 2.75rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid rgba(26, 26, 26, 0.1);
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.workshop-custom-events-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3.5vw, 1.85rem);
+  font-weight: 600;
+  color: var(--color-rose);
+  margin: 0 0 1rem;
+  line-height: 1.25;
+}
+
+.workshop-custom-events-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 2.4vw, 1.22rem);
+  font-weight: 400;
+  color: #333;
+  line-height: 1.55;
+  margin: 0 0 1.25rem;
+}
+
+.workshop-custom-events-cta-block {
+  margin: 0.5rem 0 0;
+  padding-top: 1.35rem;
+  border-top: 1px solid rgba(250, 186, 217, 0.45);
+  display: flex;
+  justify-content: center;
+}
+
+/* Magazine-style headline: kicker + display + italic close (editorial column) */
+.workshop-mag-head {
+  margin: 0;
+  padding: 0.2rem 0 0.15rem 1.05rem;
+  border-left: 4px solid var(--color-rose);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 18rem;
+}
+
+.workshop-mag-head__kicker {
+  font-family: var(--font-sans);
+  font-size: clamp(0.58rem, 1.35vw, 0.7rem);
+  font-weight: 600;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin-bottom: 0.45rem;
+  line-height: 1.2;
+}
+
+.workshop-mag-head__display {
+  font-family: var(--font-serif);
+  font-size: clamp(2.1rem, 9vw, 3.6rem);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  color: var(--color-rose);
+}
+
+.workshop-mag-head__tail {
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 3.4vw, 1.45rem);
+  font-style: italic;
+  font-weight: 400;
+  color: #2c2c2c;
+  margin-top: 0.4rem;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.workshop-custom-events-cta-block + .workshop-custom-events-email {
+  margin-top: 1.15rem;
+}
+
+.workshop-custom-events-email {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #9a9a9a;
+  line-height: 1.4;
+}
+
+.workshop-custom-events-email a {
+  color: #666;
+  text-decoration: none;
+  font-weight: 500;
+  user-select: all;
+}
+
+.workshop-custom-events-email a:hover {
+  color: #1a1a1a;
+  text-decoration: underline;
+}
+
+.workshop-contact-alt {
+  margin: 0.85rem 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.workshop-copy-email-btn {
+  display: inline-block;
+  margin: 0;
+  padding: 0.42rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--color-rose);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 1.35;
+  transition: background 0.25s ease, color 0.25s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.workshop-copy-email-btn:hover {
+  background: #000;
+  color: #fff;
 }
 
 /* Full-width gallery row under headline */
@@ -315,6 +609,18 @@ body {
   align-items: center;
 }
 
+.hero-buttons.workshop-description-cta--after-events {
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.workshop-cta-column .hero-buttons.workshop-description-cta--after-events .btn-inst--turquoise {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hero-buttons .btn {
   display: inline-flex;
   align-items: center;
@@ -335,8 +641,36 @@ body {
 }
 
 .btn-inst-inline {
-  min-width: min(100%, 300px);
+  width: fit-content;
   max-width: 100%;
+  min-width: unset;
+}
+
+.btn-inst.btn-inst--turquoise {
+  background: var(--color-turquoise);
+  color: #fff;
+  min-height: unset;
+  padding: 1.05rem 1.4rem;
+}
+
+.btn-inst.btn-inst--turquoise svg {
+  color: #fff;
+}
+
+.btn-inst.btn-inst--turquoise:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-inst.btn-inst--turquoise:hover svg {
+  color: #fff;
+}
+
+.btn-inst-label--sentence {
+  text-transform: none;
+  letter-spacing: 0.05em;
+  font-size: 0.84rem;
+  font-weight: 500;
 }
 
 .btn-inst:hover {
@@ -379,9 +713,15 @@ body {
   color: #1a1a1a;
 }
 
+.hero-title-accent {
+  color: #1a1a1a;
+  font-weight: 700;
+  font-style: italic;
+}
+
 .hero-lead {
   font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-size: clamp(1.52rem, 3.85vw, 2rem);
   font-weight: 400;
   color: #1a1a1a;
   text-align: center;
@@ -398,6 +738,12 @@ body {
   background: rgba(26, 26, 26, 0.18);
 }
 
+.hero-divider.hero-divider--between-sections {
+  margin: 0 auto;
+  max-width: 140px;
+  width: 100%;
+}
+
 .hero-subtitle {
   font-family: var(--font-sans);
   font-size: clamp(1.2rem, 3.5vw, 2rem);
@@ -405,8 +751,9 @@ body {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--color-turquoise);
-  margin: 3.5rem 0 2.75rem;
+  margin: 0;
   line-height: 1.15;
+  margin-bottom: 2rem;
 }
 
 .btn {
@@ -418,7 +765,7 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
   border: none;
-  border-radius: 2rem;
+  border-radius: 2.5rem;
 }
 
 .btn.btn-inst {
