@@ -22,23 +22,47 @@ const MIME = {
 
 function safePath(urlPath) {
   const decoded = decodeURIComponent(urlPath.split("?")[0] ?? "/");
-  const relative = decoded === "/" ? "index.html" : decoded.replace(/^\//, "");
-  const full = normalize(join(ROOT, relative));
+  const trimmed =
+    decoded === "/" || decoded === ""
+      ? "index.html"
+      : decoded.replace(/^\//, "").replace(/\/$/, "");
+  const full = normalize(join(ROOT, trimmed));
   if (!full.startsWith(ROOT)) return null;
   return full;
+}
+
+/** Resolve URL to an existing file: direct path, then `{dir}/index.html`, then `{name}.html`. */
+async function resolveStaticPath(urlPath) {
+  const base = safePath(urlPath);
+  if (!base) return null;
+
+  const tryExists = async (p) => {
+    const f = Bun.file(p);
+    if (await f.exists()) return p;
+    return null;
+  };
+
+  if (await tryExists(base)) return base;
+
+  const asIndex = join(base, "index.html");
+  if (await tryExists(asIndex)) return asIndex;
+
+  if (!base.endsWith(".html")) {
+    const asHtml = `${base}.html`;
+    if (await tryExists(asHtml)) return asHtml;
+  }
+
+  return null;
 }
 
 const server = Bun.serve({
   port: PORT,
   async fetch(req) {
-    const path = safePath(new URL(req.url).pathname);
+    const path = await resolveStaticPath(new URL(req.url).pathname);
     if (!path) {
-      return new Response("Forbidden", { status: 403 });
-    }
-    const file = Bun.file(path);
-    if (!(await file.exists())) {
       return new Response("Not Found", { status: 404 });
     }
+    const file = Bun.file(path);
     const ext = path.slice(path.lastIndexOf("."));
     const type = MIME[ext] ?? "application/octet-stream";
     return new Response(file, {

@@ -43,7 +43,7 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 0.75rem 2rem;
+  padding: 0.1rem 0.35rem;
   background: var(--color-beige);
 }
 
@@ -54,7 +54,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0;
 }
 
 .logo {
@@ -63,7 +63,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 1.5rem 0;
+  margin: 0.2rem 0;
 }
 
 /* 75% of prior cap (which was 75% of base 440px × 800px) */
@@ -76,20 +76,6 @@ body {
   object-fit: contain;
 }
 
-.nav {
-  display: flex;
-  gap: 4rem;
-}
-
-.nav a {
-  color: #000;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
 /* Hero – workshop image (inset) + Inst overlay; copy below on cream */
 .hero {
   position: relative;
@@ -98,7 +84,7 @@ body {
   align-items: center;
   text-align: center;
   background: var(--color-beige);
-  padding: 2rem 0 3rem;
+  padding: 0.75rem 0 2rem;
   margin: 0;
 }
 
@@ -106,8 +92,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0 1.5rem;
-  padding-bottom: clamp(2.25rem, 6vw, 3.75rem);
+  padding: 0 1rem;
+  padding-bottom: clamp(1.5rem, 4.5vw, 2.5rem);
 }
 
 .hero-image-wrap {
@@ -463,58 +449,105 @@ section.workshop-you-get {
 }
 
 .workshop-custom-events-cta-block {
-  margin: 0.5rem 0 0;
-  padding-top: 1.35rem;
-  border-top: 1px solid rgba(250, 186, 217, 0.45);
+  margin: 0.35rem 0 0;
+  padding-top: 0;
+  border-top: none;
   display: flex;
   justify-content: center;
 }
 
-/* Magazine-style headline: kicker + display + italic close (editorial column) */
-.workshop-mag-head {
+/* CTA card – soft panel; rose Wunschtermin + italic Jetzt sichern */
+.workshop-cta-card {
+  position: relative;
+  width: 100%;
+  max-width: 22rem;
+  margin: 0 auto;
+  padding: 1.6rem 1.5rem 1.35rem;
+  border-radius: 1.35rem;
+  text-align: center;
+  background:
+    linear-gradient(145deg, rgba(139, 238, 231, 0.22) 0%, rgba(248, 244, 237, 0.98) 42%, rgba(250, 186, 217, 0.2) 100%);
+  border: 1px solid rgba(26, 26, 26, 0.07);
+  box-shadow: 0 14px 36px rgba(45, 40, 35, 0.07);
+  overflow: hidden;
+}
+
+.workshop-cta-card::before {
+  content: "";
+  position: absolute;
+  top: -35%;
+  right: -18%;
+  width: 55%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 238, 231, 0.35) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.workshop-cta-card__headline {
+  position: relative;
+  z-index: 1;
   margin: 0;
-  padding: 0.2rem 0 0.15rem 1.05rem;
-  border-left: 4px solid var(--color-rose);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  max-width: 18rem;
+  align-items: center;
+  gap: 0.35rem;
 }
 
-.workshop-mag-head__kicker {
-  font-family: var(--font-sans);
-  font-size: clamp(0.58rem, 1.35vw, 0.7rem);
-  font-weight: 600;
-  letter-spacing: 0.38em;
-  text-transform: uppercase;
-  color: #1a1a1a;
-  margin-bottom: 0.45rem;
-  line-height: 1.2;
-}
-
-.workshop-mag-head__display {
+.workshop-cta-card__headline-primary {
   font-family: var(--font-serif);
-  font-size: clamp(2.1rem, 9vw, 3.6rem);
-  font-weight: 300;
-  line-height: 0.92;
-  letter-spacing: -0.045em;
-  color: var(--color-rose);
-}
-
-.workshop-mag-head__tail {
-  font-family: var(--font-serif);
-  font-size: clamp(1.05rem, 3.4vw, 1.45rem);
-  font-style: italic;
+  font-size: clamp(2rem, 6.5vw, 2.85rem);
   font-weight: 400;
-  color: #2c2c2c;
-  margin-top: 0.4rem;
-  line-height: 1.15;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--color-rose);
+  white-space: nowrap;
 }
 
-.workshop-custom-events-cta-block + .workshop-custom-events-email {
-  margin-top: 1.15rem;
+.workshop-cta-card__headline-secondary {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 3.8vw, 1.65rem);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: #1a1a1a;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.workshop-cta-card__footer {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.35rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed rgba(26, 26, 26, 0.14);
+}
+
+.workshop-cta-card__footer .workshop-custom-events-email {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.workshop-cta-card__footer .workshop-custom-events-email a {
+  color: #3a3a3a;
+}
+
+.workshop-cta-card__footer .workshop-contact-alt {
+  margin: 0.75rem 0 0;
+}
+
+.workshop-cta-card .workshop-copy-email-btn {
+  background: rgba(255, 255, 255, 0.92);
+  color: #1a1a1a;
+  border: 2px solid var(--color-turquoise);
+  box-shadow: 0 2px 0 rgba(139, 238, 231, 0.35);
+}
+
+.workshop-cta-card .workshop-copy-email-btn:hover {
+  background: var(--color-rose);
+  border-color: var(--color-rose);
+  color: #fff;
+  box-shadow: none;
 }
 
 .workshop-custom-events-email {
@@ -1046,8 +1079,126 @@ section.hero {
   color: var(--color-turquoise);
 }
 
+/* Markt 2026 – one workshop, three Stripe price tiers */
+.markt-page.legal-content {
+  max-width: 52rem;
+  text-align: center;
+}
+
+.markt-page.legal-content h1 {
+  margin-bottom: 0.35rem;
+}
+
+.markt-workshop-line {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 1.5vw, 0.82rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-rose);
+  margin: 0 0 2.25rem;
+}
+
+.markt-price-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem 1.25rem;
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.markt-price-grid li {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.markt-page.legal-content .markt-price-card {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markt-price-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  min-height: 11rem;
+  padding: 1.5rem 1rem 1.35rem;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border: 2px solid rgba(26, 26, 26, 0.08);
+  border-radius: 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.markt-price-card:hover {
+  border-color: var(--color-turquoise);
+  box-shadow: 0 12px 28px rgba(26, 26, 26, 0.06);
+  transform: translateY(-2px);
+}
+
+.markt-price-card:focus-visible {
+  outline: 2px solid var(--color-turquoise);
+  outline-offset: 3px;
+}
+
+.markt-price-amount {
+  font-family: var(--font-serif);
+  font-size: clamp(2.75rem, 9vw, 4.25rem);
+  font-weight: 600;
+  line-height: 1;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+}
+
+.markt-price-cta {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-rose);
+  padding: 0.65rem 1.35rem;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.markt-price-card:hover .markt-price-cta {
+  background: #1a1a1a;
+}
+
+.markt-instagram-block {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.markt-instagram-block .btn-inst {
+  width: 100%;
+  max-width: 22rem;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .markt-price-grid {
+    grid-template-columns: 1fr;
+    max-width: 18rem;
+  }
+
+  .markt-price-card {
+    min-height: 9.5rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .cards-grid { grid-template-columns: 1fr; }
   .hero-below h1 { font-size: 2.25rem; }
-  .nav { display: none; }
 }
