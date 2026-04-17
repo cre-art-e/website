@@ -105,6 +105,8 @@ body {
   max-width: 100%;
   margin: 0 auto;
   line-height: 0;
+  /* Luft zwischen Foto und Instagram-Button (Button sitzt unten am Wrapper) */
+  padding-bottom: 1.1rem;
 }
 
 .hero-image-crop {
@@ -140,7 +142,7 @@ body {
 }
 
 .hero-below:not(.hero-below--after-gallery) {
-  padding-top: 4rem;
+  padding-top: 4.65rem;
 }
 
 .hero-below--after-gallery {
@@ -317,17 +319,46 @@ body {
   font-weight: 600;
 }
 
-.workshop-farbtupfer {
-  display: flex;
-  justify-content: center;
-  margin: 1.75rem auto 2rem;
-  max-width: 200px;
+/* Mehr Abstand als ein Zeilenumbruch, weniger als ein neuer Absatz */
+.workshop-body-split {
+  display: block;
+  margin: 0.5rem auto 0.55rem;
+  padding: 0.15rem 0 0.1rem;
+  text-align: center;
+  line-height: 0;
 }
 
-.workshop-farbtupfer-svg {
+.workshop-body-split__line {
+  display: inline-block;
+  width: 2.5rem;
+  max-width: 22%;
+  height: 1px;
+  background: rgba(26, 26, 26, 0.2);
+  vertical-align: middle;
+}
+
+.workshop-body-continuation {
   display: block;
-  width: min(168px, 46vw);
-  height: auto;
+  margin-top: 0.1rem;
+  text-align: center;
+}
+
+/* Trennlinie wie Hero-Divider, oberhalb „Was du bekommst“ */
+.workshop-section-divider {
+  display: block;
+  margin: 1.65rem auto 1.75rem;
+  padding: 0;
+  text-align: center;
+  line-height: 0;
+}
+
+.workshop-section-divider__line {
+  display: inline-block;
+  width: 100%;
+  max-width: 140px;
+  height: 1px;
+  background: rgba(26, 26, 26, 0.18);
+  vertical-align: middle;
 }
 
 section.workshop-you-get {
@@ -348,7 +379,7 @@ section.workshop-you-get {
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-turquoise);
+  color: var(--color-rose);
   margin: 0 auto 1.35rem;
   line-height: 1.3;
   text-wrap: balance;
@@ -653,37 +684,32 @@ section.workshop-you-get {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Instagram CTA: below the hero image, full readable label (no overlap / no line-height crush) */
+  /* Header logo: nur mobil kleiner (Desktop/Tablet = Standard oben) */
+  .logo-img {
+    max-height: calc(440px * 0.75 * 0.75 * 0.75 * 0.8 * 0.82);
+    max-width: min(calc(800px * 0.75 * 0.75 * 0.75 * 0.8 * 0.82), calc(72vw * 0.75 * 0.75 * 0.8 * 0.82));
+  }
+
+  /* Instagram CTA: unter dem Hero-Bild, mit mehr Abstand nach oben */
   .hero-image-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1.35rem;
+    padding-bottom: 0;
   }
 
   .hero-inst-banner {
     position: static;
     transform: none;
     left: auto;
-    margin: 1.15rem auto 0;
-    min-height: unset;
-    min-width: unset;
+    margin: 0;
     width: fit-content;
-    max-width: min(18rem, calc(100% - 2rem));
-    padding: 1rem 1.35rem;
-    gap: 0.5rem;
+    max-width: min(12rem, calc(100% - 2rem));
   }
 
-  .hero-inst-banner svg {
-    width: 56px;
-    height: 56px;
-  }
-
-  .hero-inst-banner .btn-inst-label {
-    letter-spacing: 0.14em;
-    font-size: 0.72rem;
-    white-space: normal;
-    max-width: 100%;
-    padding: 0.2rem 0 0;
+  .hero-below:not(.hero-below--after-gallery) {
+    padding-top: 2.5rem;
   }
 
   .workshop-description-body {
@@ -718,15 +744,16 @@ section.workshop-you-get {
   justify-content: center;
 }
 
+/* Instagram CTAs – Desktop/Tablet: großes Layout; vertikales Padding rosa = türkis */
 .btn-inst {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  min-width: 120px;
-  min-height: 120px;
-  padding: 1.25rem 1.5rem;
+  min-width: unset;
+  min-height: unset;
+  padding: 1.05rem 1.4rem;
   background: var(--color-rose);
   color: #fff;
 }
@@ -737,11 +764,17 @@ section.workshop-you-get {
   min-width: unset;
 }
 
+/* Wie rosa: Icon zentriert, Label in neuer Zeile darunter (nur mobil: kompakte Zeile) */
 .btn-inst.btn-inst--turquoise {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: var(--color-turquoise);
   color: #fff;
   min-height: unset;
+  min-width: unset;
   padding: 1.05rem 1.4rem;
+  gap: 0.6rem;
 }
 
 .btn-inst.btn-inst--turquoise svg {
@@ -762,6 +795,15 @@ section.workshop-you-get {
   letter-spacing: 0.05em;
   font-size: 0.84rem;
   font-weight: 500;
+}
+
+.btn-inst-label--brand {
+  text-transform: none;
+  letter-spacing: 0.03em;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.2rem 0.35rem 0.25rem;
+  line-height: 1.35;
 }
 
 .btn-inst:hover {
@@ -803,12 +845,6 @@ section.workshop-you-get {
   margin: 0;
   line-height: 1.2;
   color: #1a1a1a;
-}
-
-.hero-title-accent {
-  color: #1a1a1a;
-  font-weight: 700;
-  font-style: italic;
 }
 
 .hero-lead {
@@ -1235,7 +1271,7 @@ section.hero {
 }
 
 .markt-instagram-block {
-  margin-top: 3rem;
+  margin-top: 2.25rem;
   display: flex;
   justify-content: center;
 }
@@ -1244,6 +1280,42 @@ section.hero {
   width: 100%;
   max-width: 22rem;
   justify-content: center;
+}
+
+/* Instagram: kompakte Zeile nur auf schmalen Viewports */
+@media (max-width: 768px) {
+  .btn-inst {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    min-width: unset;
+    min-height: unset;
+    padding: 0.5rem 1rem;
+  }
+
+  .btn-inst svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .btn-inst.btn-inst--turquoise {
+    flex-direction: row;
+    padding: 0.5rem 1rem;
+    gap: 0.4rem;
+  }
+
+  .btn-inst-label--brand {
+    font-size: 0.76rem;
+    padding: 0;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+  }
+
+  .markt-instagram-block .btn-inst {
+    width: auto;
+    max-width: none;
+  }
 }
 
 @media (max-width: 640px) {
