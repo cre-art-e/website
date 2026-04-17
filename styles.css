@@ -266,6 +266,16 @@ body {
   font-weight: 400;
 }
 
+/* iOS Safari: automatische Tel-/Adress-Links neutral halten */
+.workshop-ticket-slot-ort a,
+.workshop-ticket-slot-hint a {
+  color: inherit;
+  text-decoration: none;
+  font-style: inherit;
+  font-weight: inherit;
+  pointer-events: none;
+}
+
 .workshop-ticket-soon {
   font-family: var(--font-sans);
   font-size: 0.68rem;
