@@ -217,9 +217,6 @@ body {
   gap: 0.65rem 1rem;
   padding: 1rem 0;
   border-top: 1px solid rgba(26, 26, 26, 0.1);
-  user-select: none;
-  pointer-events: none;
-  cursor: default;
 }
 
 .workshop-ticket-slot:last-child {
@@ -276,6 +273,7 @@ body {
   pointer-events: none;
 }
 
+a.workshop-ticket-soon,
 .workshop-ticket-soon {
   font-family: var(--font-sans);
   font-size: 0.68rem;
@@ -289,6 +287,19 @@ body {
   border-radius: 999px;
   white-space: nowrap;
   flex-shrink: 0;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  transition: background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a.workshop-ticket-soon:hover,
+a.workshop-ticket-soon:focus-visible {
+  background: var(--color-turquoise);
+  color: #fff;
+  outline: none;
 }
 
 .workshop-description-title {
@@ -1156,6 +1167,43 @@ section.hero {
   margin: 0 0 1rem;
   font-size: 1rem;
   color: #1a1a1a;
+}
+
+.legal-content h3 {
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 1.35rem 0 0.5rem;
+  line-height: 1.4;
+}
+
+.legal-content > h1 + h2 {
+  margin-top: 1.2rem;
+}
+
+.legal-content ol.legal-ordered,
+.legal-content ul.legal-list {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: #1a1a1a;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.legal-content ol.legal-ordered li,
+.legal-content ul.legal-list li {
+  margin-bottom: 0.5rem;
+}
+
+.legal-content ol.legal-ordered li:last-child,
+.legal-content ul.legal-list li:last-child {
+  margin-bottom: 0;
+}
+
+.legal-content ol.legal-ordered .legal-list {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
 
 .legal-content a {
