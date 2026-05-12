@@ -532,6 +532,19 @@ section.workshop-you-get {
   margin: 0 0 1.15rem;
 }
 
+.workshop-custom-events-text__paren {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  font-size: clamp(0.94rem, 2.05vw, 1.08rem);
+}
+
+@media (max-width: 22rem) {
+  .workshop-custom-events-text__paren {
+    white-space: normal;
+  }
+}
+
 /* CTA card – full block in one panel; rose header + gradient body */
 .workshop-cta-card {
   position: relative;
