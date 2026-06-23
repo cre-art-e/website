@@ -333,6 +333,26 @@ a.workshop-ticket-soon:focus-visible {
   outline: none;
 }
 
+.workshop-ticket-slot--soldout {
+  opacity: 0.6;
+}
+
+.workshop-ticket-soldout-badge {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #b0a8a0;
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-block;
+  text-align: center;
+}
+
 a.workshop-ticket-soon:visited {
   color: #fff !important;
   text-decoration: none !important;
@@ -481,6 +501,24 @@ section.workshop-you-get {
 .workshop-description-cta {
   margin-top: 0;
   align-items: center;
+}
+
+.exclusive-event-teaser {
+  width: 100%;
+  max-width: 42.5rem;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.exclusive-event-teaser__lead {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  text-align: center;
+  margin: 0;
 }
 
 .workshop-cta-column {
