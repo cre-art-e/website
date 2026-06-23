@@ -180,7 +180,7 @@ body {
 }
 
 .workshop-tickets-section {
-  margin: 2.25rem auto 2rem;
+  margin: 3.5rem auto 2rem;
   padding: 0 clamp(0.25rem, 3vw, 0.75rem);
   max-width: 26rem;
   text-align: center;
@@ -188,46 +188,32 @@ body {
 
 .workshop-tickets-heading {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 0.65rem;
+  white-space: nowrap;
   margin: 0 auto;
-  max-width: 100%;
-  padding: 0.72rem clamp(1.35rem, 5vw, 2rem);
+  padding: 0.65rem 2rem;
   font-family: var(--font-sans);
-  font-size: clamp(1.14rem, 3.35vw, 1.58rem);
-  font-weight: 700;
-  letter-spacing: 0.24em;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-turquoise);
-  line-height: 1.22;
-  text-wrap: balance;
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.88) 0%,
-    rgba(248, 244, 237, 0.95) 45%,
-    color-mix(in srgb, var(--color-turquoise) 14%, transparent) 100%
-  );
+  line-height: 1;
+  background: transparent;
   border: 1px solid var(--color-turquoise);
   border-radius: 999px;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.95) inset,
-    0 6px 22px rgba(45, 40, 35, 0.07);
+  box-shadow: none;
 }
 
 .workshop-tickets-heading::after {
-  content: "";
-  display: block;
-  width: min(11.5rem, 78%);
-  height: 3px;
-  margin: 0 auto;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--color-turquoise), var(--color-rose));
+  display: none;
 }
 
 .workshop-ticket-list {
   list-style: none;
   margin: 1.15rem 0 0;
+  margin-bottom: 0;
   padding: 0;
   text-align: left;
 }
@@ -506,7 +492,7 @@ section.workshop-you-get {
 .exklusiv-section {
   width: 100%;
   max-width: 42.5rem;
-  margin: 2.5rem auto 0;
+  margin: 0 auto 0;
   text-align: center;
 }
 
