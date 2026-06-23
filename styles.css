@@ -503,6 +503,69 @@ section.workshop-you-get {
   align-items: center;
 }
 
+.exklusiv-section {
+  width: 100%;
+  max-width: 42.5rem;
+  margin: 2.5rem auto 0;
+  text-align: center;
+}
+
+.exklusiv-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+}
+
+.exklusiv-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin: 0;
+  text-align: center;
+}
+
+.exklusiv-headline-sub {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 400;
+  font-family: var(--font-sans);
+  letter-spacing: 0.05em;
+  color: #999;
+  margin-top: 0.5rem;
+}
+
+.exklusiv-text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  margin: 0;
+  max-width: 28rem;
+  text-align: center;
+}
+
+.exklusiv-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.5rem;
+}
+
+.exklusiv-cta-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0;
+}
+
 .exclusive-event-section {
   width: 100%;
   margin: 3rem 0 0;
@@ -609,7 +672,7 @@ section.workshop-you-get {
 .exclusive-event-email-btn {
   display: inline-block;
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   color: #1a1a1a;
