@@ -1735,11 +1735,13 @@ section.hero {
 
 .tufting-kollab-title {
   font-family: var(--font-sans);
-  font-size: 1.1rem;
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--color-turquoise);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
+  margin-bottom: 0.2rem;
 }
 
 .tufting-kollab-desc {
