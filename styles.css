@@ -1750,7 +1750,15 @@ section.hero {
   color: #666;
   line-height: 1.5;
   text-align: center;
-  margin-bottom: 0.85rem;
+  margin-top: 0.9rem;
+}
+
+.tufting-kollab-desc p {
+  margin: 0;
+}
+
+.tufting-kollab-desc p + p {
+  margin-top: 0.7rem;
 }
 
 .tufting-kollab-meta {
