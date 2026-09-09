@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Parisienne&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="header">
@@ -40,7 +40,7 @@
         <hr class="hero-divider hero-divider--between-sections">
       </div>
       <div class="hero-gallery-band">
-        <p class="hero-subtitle">Raysin Workshops</p>
+        <p class="hero-subtitle">Raysin Interior Workshops</p>
       </div>
       <div class="gallery-row" role="group" aria-label="Werkstücke und Impressionen">
         <div class="gallery-cell">
@@ -64,8 +64,7 @@
           <div class="workshop-section-divider" aria-hidden="true">
             <span class="workshop-section-divider__line"></span>
           </div>
-          <section class="workshop-you-get" aria-labelledby="workshop-you-get-heading">
-            <h3 id="workshop-you-get-heading" class="workshop-you-get-title">Was du bekommst</h3>
+          <section class="workshop-you-get" aria-label="Was du bekommst">
             <ul class="workshop-you-get-list">
               <li class="workshop-you-get-item">
                 <span class="workshop-you-get-dot" aria-hidden="true"></span>
@@ -94,8 +93,7 @@
             <ul class="workshop-ticket-list" aria-label="Workshop-Termine">
               <li class="workshop-ticket-slot">
                 <div class="workshop-ticket-slot-info">
-                  <span class="workshop-ticket-slot-title">Resin Interior Workshop</span>
-                  <span class="workshop-ticket-slot-line">Sonntag, 18.&nbsp;Oktober 2026</span>
+                  <span class="workshop-ticket-slot-line workshop-ticket-slot-date">Sonntag, 18.&nbsp;Oktober 2026</span>
                   <span class="workshop-ticket-slot-line workshop-ticket-slot-meta">15:00 Uhr · 59&nbsp;€</span>
                   <span class="workshop-ticket-slot-line workshop-ticket-slot-ort" x-apple-data-detectors="false">Ort: Tante Aenne<br><span class="workshop-ticket-slot-hint">Watzmannstr.&nbsp;11&nbsp;·&nbsp;81541&nbsp;München</span></span>
                 </div>
@@ -103,8 +101,7 @@
               </li>
               <li class="workshop-ticket-slot">
                 <div class="workshop-ticket-slot-info">
-                  <span class="workshop-ticket-slot-title">Resin Interior Workshop</span>
-                  <span class="workshop-ticket-slot-line">Samstag, 14.&nbsp;November 2026</span>
+                  <span class="workshop-ticket-slot-line workshop-ticket-slot-date">Samstag, 14.&nbsp;November 2026</span>
                   <span class="workshop-ticket-slot-line workshop-ticket-slot-meta">15:00 Uhr · 59&nbsp;€</span>
                   <span class="workshop-ticket-slot-line workshop-ticket-slot-ort" x-apple-data-detectors="false">Ort: Tante Aenne<br><span class="workshop-ticket-slot-hint">Watzmannstr.&nbsp;11&nbsp;·&nbsp;81541&nbsp;München</span></span>
                 </div>
@@ -112,8 +109,7 @@
               </li>
               <li class="workshop-ticket-slot">
                 <div class="workshop-ticket-slot-info">
-                  <span class="workshop-ticket-slot-title">Resin Interior Workshop</span>
-                  <span class="workshop-ticket-slot-line">Samstag, 12.&nbsp;Dezember 2026</span>
+                  <span class="workshop-ticket-slot-line workshop-ticket-slot-date">Samstag, 12.&nbsp;Dezember 2026</span>
                   <span class="workshop-ticket-slot-line workshop-ticket-slot-meta">15:00 Uhr · 59&nbsp;€</span>
                   <span class="workshop-ticket-slot-line workshop-ticket-slot-ort" x-apple-data-detectors="false">Ort: Tante Aenne<br><span class="workshop-ticket-slot-hint">Watzmannstr.&nbsp;11&nbsp;·&nbsp;81541&nbsp;München</span></span>
                 </div>
@@ -148,6 +144,16 @@
               <div class="exklusiv-cta">
                 <p class="exklusiv-cta-label">Wunschtermin anfragen</p>
                 <a href="mailto:crearte.workshops@gmail.com" class="exclusive-event-email-btn">crearte.workshops@gmail.com</a>
+                <button type="button" class="workshop-copy-email-btn exclusive-event-copy-btn" data-copy-email="crearte.workshops@gmail.com">Adresse kopieren</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="gutschein-section" aria-label="Gutscheine">
+            <div class="gutschein-body">
+              <p class="gutschein-text">Verschenke eine kreative Auszeit<br>mit deinen Liebsten</p>
+              <div class="exklusiv-cta">
+                <a href="mailto:crearte.workshops@gmail.com?subject=Gutschein-Anfrage" class="gutschein-request-btn">Gutschein jetzt anfordern</a>
                 <button type="button" class="workshop-copy-email-btn exclusive-event-copy-btn" data-copy-email="crearte.workshops@gmail.com">Adresse kopieren</button>
               </div>
             </div>
