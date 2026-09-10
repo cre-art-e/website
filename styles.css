@@ -655,10 +655,9 @@ section.workshop-you-get {
 }
 
 .gutschein-heart {
-  color: #1a1a1a;
-  font-size: 0.8em;
+  font-size: 0.78em;
   vertical-align: 1px;
-  margin: 0 0.35em;
+  margin: 0 0.4em;
 }
 
 .gutschein-copy-link {
