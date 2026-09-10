@@ -182,8 +182,68 @@ body {
 .workshop-tickets-section {
   margin: 3.5rem auto 2rem;
   padding: 0 clamp(0.25rem, 3vw, 0.75rem);
-  max-width: 26rem;
+  max-width: 46rem;
   text-align: center;
+}
+
+.workshop-locations {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.25rem 2.5rem;
+  margin-top: 1.85rem;
+  text-align: left;
+}
+
+.workshop-location-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 2px solid var(--color-turquoise);
+}
+
+.workshop-location-name {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-turquoise);
+}
+
+.workshop-location-addr {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-style: italic;
+  color: #999;
+}
+
+.workshop-locations .workshop-ticket-list {
+  margin-top: 0.15rem;
+}
+
+.workshop-locations .workshop-ticket-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  padding: 0.95rem 0;
+}
+
+.workshop-locations .workshop-ticket-slot:first-child {
+  border-top: none;
+}
+
+.workshop-locations .workshop-ticket-slot-info {
+  flex: none;
+  gap: 0.1rem;
+}
+
+@media (max-width: 680px) {
+  .workshop-locations {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
 }
 
 .workshop-tickets-heading {
@@ -489,6 +549,12 @@ section.workshop-you-get {
   font-weight: 400;
 }
 
+.workshop-you-get-sub {
+  display: inline-block;
+  font-size: 0.86em;
+  color: #333;
+}
+
 .workshop-description-cta {
   margin-top: 0;
   align-items: center;
@@ -560,38 +626,60 @@ section.workshop-you-get {
 .gutschein-section {
   width: 100%;
   max-width: 42.5rem;
-  margin: -4rem auto 0;
-  padding: 0 2rem 3.5rem;
+  margin: -1rem auto 0;
+  padding: 0 1.5rem 3rem;
   text-align: center;
 }
 
-.gutschein-section::before {
-  content: "";
-  display: block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #1a1a1a;
-  margin: 1.25rem auto 2.75rem;
-}
-
-.gutschein-body {
+.gutschein-card {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 2rem 1.75rem 1.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  padding: 0.5rem 1.5rem 0;
+  gap: 1.05rem;
+  border: 1px solid rgba(139, 238, 231, 0.55);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .gutschein-text {
-  font-family: 'Parisienne', 'Cormorant Garamond', cursive;
-  font-size: clamp(1.45rem, 4.6vw, 2rem);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
   font-weight: 400;
-  line-height: 1.3;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
   color: #333;
   margin: 0;
-  max-width: 42rem;
-  text-align: center;
+}
+
+.gutschein-heart {
+  color: #1a1a1a;
+  font-size: 0.8em;
+  vertical-align: 1px;
+  margin: 0 0.35em;
+}
+
+.gutschein-copy-link {
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a8a8a8;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: -0.2rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.gutschein-copy-link:hover {
+  color: #555;
 }
 
 /* "Gutschein anfordern": Schrift wie die Abschnitts-Überschrift, mit runder Umrandung */
@@ -1087,6 +1175,10 @@ section.workshop-you-get {
     align-items: center;
     justify-content: center;
     z-index: 3;
+  }
+
+  .workshop-locations a.workshop-ticket-soon {
+    align-self: flex-start;
   }
 }
 
