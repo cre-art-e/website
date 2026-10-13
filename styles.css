@@ -1190,7 +1190,8 @@ section.workshop-you-get {
     max-width: 100%;
   }
 
-  a.workshop-ticket-soon {
+  a.workshop-ticket-soon,
+  .workshop-ticket-soldout-badge {
     align-self: center;
     min-height: 2.75rem;
     display: inline-flex;
@@ -1199,7 +1200,8 @@ section.workshop-you-get {
     z-index: 3;
   }
 
-  .workshop-locations a.workshop-ticket-soon {
+  .workshop-locations a.workshop-ticket-soon,
+  .workshop-locations .workshop-ticket-soldout-badge {
     align-self: flex-start;
   }
 }
