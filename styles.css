@@ -703,7 +703,16 @@ section.workshop-you-get {
   color: #555;
 }
 
-/* "Gutschein anfordern": Schrift wie die Abschnitts-Überschrift, mit runder Umrandung */
+.gutschein-info {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #777;
+  margin: 0;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* "Gutschein kaufen": Schrift wie die Abschnitts-Überschrift, mit runder Umrandung */
 .gutschein-request-btn {
   display: inline-block;
   font-family: var(--font-sans);
