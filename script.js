@@ -50,6 +50,25 @@ document.addEventListener('DOMContentLoaded', function () {
     if (cb) cb();
   }
 
+  // Buchungsschluss: 3 Stunden vor Workshop-Beginn (data-start) wird „Jetzt buchen" durch „Buchung geschlossen" ersetzt
+  var BUCHUNGSSCHLUSS_MS = 3 * 60 * 60 * 1000;
+  function buchungsschlussPruefen() {
+    var jetzt = Date.now();
+    document.querySelectorAll('.workshop-ticket-slot[data-start]').forEach(function (slot) {
+      var start = Date.parse(slot.getAttribute('data-start'));
+      if (isNaN(start) || jetzt < start - BUCHUNGSSCHLUSS_MS) return;
+      var btn = slot.querySelector('a.workshop-ticket-soon');
+      if (!btn) return;
+      var badge = document.createElement('span');
+      badge.className = 'workshop-ticket-soldout-badge';
+      badge.textContent = 'Buchung geschlossen';
+      (slot.querySelector('.workshop-ticket-slot-action') || btn).replaceWith(badge);
+    });
+  }
+  buchungsschlussPruefen();
+  setInterval(buchungsschlussPruefen, 60 * 1000);
+  document.addEventListener('visibilitychange', buchungsschlussPruefen);
+
   const form = document.querySelector('.newsletter-form');
   if (form) {
     form.addEventListener('submit', function (e) {
