@@ -648,6 +648,13 @@ section.workshop-you-get {
   text-align: center;
 }
 
+/* Handy: „Exklusive Events" etwas näher an die Terminliste (sonst wirkt die Seite dort zu Ende) */
+@media (max-width: 680px) {
+  .exklusiv-section {
+    padding-top: 4.5rem;
+  }
+}
+
 .exklusiv-body {
   display: flex;
   flex-direction: column;
