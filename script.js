@@ -50,6 +50,35 @@ document.addEventListener('DOMContentLoaded', function () {
     if (cb) cb();
   }
 
+  // Handy: alle Termine beider Orte in EINER Liste, nach Datum sortiert, mit kleinem Ort-Etikett.
+  // Desktop zeigt weiter die zwei Spalten (Umschalten per CSS, max-width 680px).
+  (function chronologischeHandyListe() {
+    var wrap = document.querySelector('.workshop-locations');
+    if (!wrap) return;
+    var eintraege = [];
+    wrap.querySelectorAll('.workshop-location').forEach(function (loc, i) {
+      var name = (loc.querySelector('.workshop-location-name') || {}).textContent || '';
+      var addr = (loc.querySelector('.workshop-location-addr') || {}).textContent || '';
+      loc.querySelectorAll('.workshop-ticket-slot').forEach(function (slot) {
+        var kopie = slot.cloneNode(true);
+        var info = kopie.querySelector('.workshop-ticket-slot-info');
+        var ort = document.createElement('span');
+        ort.className = 'workshop-ticket-slot-line workshop-ticket-slot-ortlabel workshop-ticket-slot-ortlabel--' + (i + 1);
+        ort.innerHTML = '<span class="ortlabel-name"></span><span class="ortlabel-addr"></span>';
+        ort.querySelector('.ortlabel-name').textContent = name.trim();
+        ort.querySelector('.ortlabel-addr').textContent = addr.trim();
+        if (info) info.insertBefore(ort, info.firstChild);
+        eintraege.push({ start: Date.parse(slot.getAttribute('data-start')) || 0, el: kopie });
+      });
+    });
+    eintraege.sort(function (a, b) { return a.start - b.start; });
+    var liste = document.createElement('ul');
+    liste.className = 'workshop-ticket-list workshop-ticket-list--chrono';
+    liste.setAttribute('aria-label', 'Alle Termine nach Datum');
+    eintraege.forEach(function (e) { liste.appendChild(e.el); });
+    wrap.parentNode.insertBefore(liste, wrap.nextSibling);
+  })();
+
   // Buchungsschluss: 3 Stunden vor Workshop-Beginn (data-start) wird „Jetzt buchen" durch „Buchung geschlossen" ersetzt
   var BUCHUNGSSCHLUSS_MS = 3 * 60 * 60 * 1000;
   function buchungsschlussPruefen() {

@@ -246,6 +246,65 @@ body {
   }
 }
 
+/* Handy: eine chronologische Terminliste statt zwei Ort-Spalten (Liste baut script.js) */
+.workshop-ticket-list--chrono {
+  display: none;
+}
+
+.workshop-ticket-slot-ortlabel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.ortlabel-name {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+}
+
+.ortlabel-addr {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-style: italic;
+  color: #999;
+}
+
+@media (max-width: 680px) {
+  .workshop-locations {
+    display: none;
+  }
+
+  .workshop-ticket-list--chrono {
+    display: block;
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+
+  .workshop-ticket-list--chrono .workshop-ticket-slot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.55rem;
+    padding: 1rem 0;
+  }
+
+  .workshop-ticket-list--chrono .workshop-ticket-slot-info {
+    flex: none;
+    gap: 0.1rem;
+  }
+
+  .workshop-ticket-list--chrono a.workshop-ticket-soon,
+  .workshop-ticket-list--chrono .workshop-ticket-soldout-badge {
+    align-self: flex-start;
+  }
+}
+
 .workshop-tickets-heading {
   display: block;
   margin: 0 auto;
